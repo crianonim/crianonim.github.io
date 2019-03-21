@@ -19,6 +19,43 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+a:link,a:visited,a:hover {
+    text-decoration: none;
+    color:inherit;
+}
 body {
     font-family:sans-serif;
+}
+header {
+    position:fixed;
+    height:100px;
+    display: flex;
+    width:100%;
+}
+main {
+    scroll-snap-type: y mandatory;
+}
+section {
+    scroll-snap-align: start;
+    height:100vh;
+}
+#who {
+    background-color: olivedrab;
+}
+#why {
+    background-color: darkcyan;
+}
+#how {
+    background-color: lightcoral
+}
+#face {
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    margin: 10px;
+    border: thick solid white;
+}
+#my-name {
+    font-size: 2em;
+    margin: 1rem;
 }
