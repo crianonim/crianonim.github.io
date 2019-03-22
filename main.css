@@ -31,15 +31,17 @@ header {
     height:100px;
     display: flex;
     width:100%;
+  
 }
-main {
-    scroll-snap-type: y mandatory;
-}
+
 section {
-    scroll-snap-align: start;
     height:100vh;
     padding-top: 100px;
     font-size:0.8em;
+}
+section .container {
+   
+    padding:0 10px;
 }
 #who {
     background-color: olivedrab;
@@ -63,4 +65,17 @@ section {
 }
 p {
     margin:5px;
+}
+@media (min-width:640px){
+    header {
+        left:10vw;
+    }
+    section .container {
+        width:80vw;
+        padding:0 10vw;
+    } 
+}
+@media (min-width:1025px) {
+     
+    
 }
