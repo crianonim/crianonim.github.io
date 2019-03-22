@@ -38,6 +38,8 @@ main {
 section {
     scroll-snap-align: start;
     height:100vh;
+    padding-top: 100px;
+    font-size:0.8em;
 }
 #who {
     background-color: olivedrab;
@@ -58,4 +60,7 @@ section {
 #my-name {
     font-size: 2em;
     margin: 1rem;
+}
+p {
+    margin:5px;
 }
