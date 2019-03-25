@@ -99,10 +99,21 @@ em {
 }
 h1 {
     margin:10px;
-    
+
 }
 .hidden {
     display: none;
+}
+footer nav {
+    display: flex;
+}
+.fcc-logo {
+    background-color: darkgreen;
+}
+.fcc-logo, .codewars-logo, .github-logo {
+    height:24px;
+    padding:4px;
+    
 }
 @media (min-width:640px){
     header {
