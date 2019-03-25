@@ -83,7 +83,7 @@ section .container {
     margin: 1rem;
 }
 .picture {
-    margin-top:5px;
+    margin:5px 0;
 }
 .picture img {
     width: 100%;
@@ -92,6 +92,13 @@ section .container {
 p {
     margin:5px;
     text-align: justify;
+}
+em {
+    font-style: italic;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
 }
 @media (min-width:640px){
     header {
