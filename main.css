@@ -97,6 +97,10 @@ em {
     font-style: italic;
     font-weight: bold;
 }
+h1 {
+    margin:10px;
+    
+}
 .hidden {
     display: none;
 }
