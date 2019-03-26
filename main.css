@@ -108,10 +108,13 @@ h1 {
 }
 footer nav {
     display: flex;
+    width:100%;
+    justify-content: center;
 }
 footer {
     position: absolute;
     bottom:0px;
+    width:100%;
 }
 .fcc-logo {
     background-color: darkgreen;
