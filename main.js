@@ -1,4 +1,4 @@
-const INTERESTS_ID = ["languages", "botany", "history", "cooking", "technology"]
+const INTERESTS_ID = ["languages", "botany","cooking", "history",  "technology"]
 let interest="botany";
 window.addEventListener("load", () => {
     // add data-interests-id to each nav button, keep the html clean
@@ -12,10 +12,22 @@ window.addEventListener("load", () => {
 })
 
 
+function selectNextInterest(){
+    selectInterestByStep(1);
+}
+function selectPreviousInterest(){
+    selectInterestByStep(-1);
+}
 
-function deselectAllInterests(id) {
-   
-    
+function selectInterestByStep(step){
+    let interestCount=INTERESTS_ID.length
+    let current=INTERESTS_ID.indexOf(interest);
+    console.log("Old id",current);
+    current+=step;
+    if (current>=interestCount) current-=interestCount;
+    if (current<0) current+=interestCount;
+    console.log("New id",current);
+    selectInterestById(INTERESTS_ID[current])
 
 }
 
