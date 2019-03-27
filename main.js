@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
         el.dataset.interestId = el.textContent.toLowerCase();
     })
     document.querySelector("#interests nav").addEventListener("click", (event) => {
-        selectInterestById(event.target.dataset.interestId)
+        if (event.target.tagName=="A") selectInterestById(event.target.dataset.interestId)
     })
     document.getElementById(interest).classList.add("selected");
     startCoundownToChange();
@@ -39,8 +39,19 @@ function selectInterestByStep(step){
 
 }
 
-function fadeIn(){
-    
+function fadeIn(selected){
+    Array.from(document.querySelectorAll(".fading-in")).forEach(el=>{
+        el.classList.remove("fading-in");
+    })
+    selected.classList.add("fading-in");
+    selected.addEventListener("animationend", () => {
+        selected.classList.remove("fading-in");
+        if (selected.id==interest){
+            selected.classList.add("selected");
+            startCoundownToChange();
+        }
+    }, { once: true })
+
 }
 function selectInterestById(id) {
     interest=id;
@@ -59,31 +70,11 @@ function selectInterestById(id) {
             interestSection.classList.remove("selected");
             interestSection.classList.remove("fading-out");
             let selected = document.querySelector("#" + interest)
-            Array.from(document.querySelectorAll(".fading-in")).forEach(el=>{
-                el.classList.remove("fading-in");
-            })
-            selected.classList.add("fading-in");
-            selected.addEventListener("animationend", () => {
-                selected.classList.remove("fading-in");
-                if (selected.id==interest){
-                    selected.classList.add("selected");
-                    startCoundownToChange();
-                }
-            }, { once: true })
+           fadeIn(selected)
+        
         }, { once: true })
     } else {
-        Array.from(document.querySelectorAll(".fading-in")).forEach(el=>{
-            el.classList.remove("fading-in");
-        })
-        selected.classList.add("fading-in");
-        selected.addEventListener("animationend", () => {
-            selected.classList.remove("fading-in");
-            if (id==interest){
-                selected.classList.add("selected");
-                startCoundownToChange();
-
-            }
-        }, { once: true })
+        fadeIn(selected)
     }
     
 }
