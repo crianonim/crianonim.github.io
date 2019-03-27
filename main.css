@@ -54,11 +54,20 @@ section .container {
 }
 #interests nav a {
     padding:5px;
+    flex-grow:1;
 }
 #interests nav a.selected {
     padding:5px 10px;
     background-color: black;
     color: whitesmoke;
+}
+article{
+    display: none;
+    opacity: 0;
+}
+article.selected {
+    display: block;
+    opacity: 1;
 }
 #who {
     background-color: #c3c8cd
@@ -103,9 +112,19 @@ h1 {
     margin:10px;
 
 }
+
 .hidden {
     display: none;
 }
+article.fading-out{
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+article.fading-in{
+   display: block;
+   animation: fade-in 0.5s ease-out;
+}
+
 footer nav {
     display: flex;
     width:100%;
@@ -142,4 +161,8 @@ footer {
         padding:0 20vw;
     } 
     
+}
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
