@@ -55,11 +55,14 @@ section .container {
 #interests nav a {
     padding:5px;
     flex-grow:1;
+    transition: color 0.5s;
+    transition: background-color 0.5s;
 }
 #interests nav a.selected {
     padding:5px 10px;
     background-color: black;
     color: whitesmoke;
+   
 }
 article{
     display: none;
