@@ -86,24 +86,25 @@ article.selected {
 }
 .navigation {
     position: absolute;
-    top:50%;
+    top:45%;
     left:0;
     right: 0;
-    height:10%;
+    /* height:10%; */
 }
 .navigation a {
     position: absolute;
-    width: 2rem;
-    height: 3rem;
-    background-color: #b2bcc022;
-    opacity: 0.2;
+    /* width: 2rem;
+    height: 3rem; */
+    /* background-color: #b2bcc022; */
+    opacity: 0.4;
     font-size: 2rem;
     text-align: center;
     cursor: grab;
+    text-shadow: white 1px 1px 1px;
 
 }
 .navigation a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 #back-button {
     left:10px;
@@ -113,6 +114,10 @@ article.selected {
 }
 #pause-button {
     right:45%;
+    visibility: hidden;
+ }
+ .picture:hover #pause-button {
+     visibility: visible;
  }
 #who {
     background-color: #c3c8cd
