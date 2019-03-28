@@ -12,7 +12,8 @@ window.addEventListener("load", () => {
         if (event.target.tagName=="A") selectInterestById(event.target.dataset.interestId)
     })
     document.getElementById(interest).classList.add("selected");
-    startCountdownToChange();
+    
+    
     window.addEventListener("keydown",(event)=>{
         if (event.keyCode==37){
             selectPreviousInterest();
@@ -21,6 +22,20 @@ window.addEventListener("load", () => {
             selectNextInterest();
         }
     })
+    
+    document.getElementById("pause-button").addEventListener("click",(event)=>{
+        event.target.innerHTML=paused?'&#9208':'&#9654'
+        if (paused) resumeCountDown();
+        else pauseCountDown();
+    })
+    document.getElementById("back-button").addEventListener("click",()=>{
+        selectPreviousInterest();
+
+    })
+    document.getElementById("forward-button").addEventListener("click",()=>{
+        selectNextInterest();
+    })
+    startCountdownToChange();
 })
 
 function startCountdownToChange(){
@@ -71,6 +86,10 @@ function fadeIn(selected){
         if (selected.id==interest){
             selected.classList.add("selected");
             startCountdownToChange();
+            
+            let nav=document.querySelector('.picture .navigation');
+            nav.parentElement.removeChild(nav);
+            selected.querySelector('.picture').appendChild(nav)
         }
     }, { once: true })
 

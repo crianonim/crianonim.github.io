@@ -81,6 +81,39 @@ article.selected {
     display: block;
     opacity: 1;
 }
+.story {
+    height: 8em;
+}
+.navigation {
+    position: absolute;
+    top:50%;
+    left:0;
+    right: 0;
+    height:10%;
+}
+.navigation a {
+    position: absolute;
+    width: 2rem;
+    height: 3rem;
+    background-color: #b2bcc022;
+    opacity: 0.2;
+    font-size: 2rem;
+    text-align: center;
+    cursor: grab;
+
+}
+.navigation a:hover {
+    opacity: 0.8;
+}
+#back-button {
+    left:10px;
+ }
+#forward-button {
+   right:10px;
+}
+#pause-button {
+    right:45%;
+ }
 #who {
     background-color: #c3c8cd
     /* background-color: #009543; */
@@ -107,6 +140,7 @@ article.selected {
 }
 .picture {
     margin:5px 0;
+    position: relative;
 }
 .picture img {
     width: 100%;
