@@ -64,6 +64,8 @@ section .container {
     transition: color var(--transition-time);
     transition: background-color var(--transition-time);
     text-align: center;
+    cursor: grab;
+    font-weight: bold;
 }
 #interests nav a.selected {
     padding:5px 10px;
@@ -168,7 +170,7 @@ footer {
     }
     section .container {
         width:60vw;
-        padding:0 20vw;
+        padding:0 19vw;
     } 
     
 }
