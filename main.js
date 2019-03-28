@@ -1,6 +1,8 @@
 const INTERESTS_ID = ["languages", "botany","cooking", "history",  "technology"]
 let interest="botany";
 let timeOut;
+let paused=false;
+
 window.addEventListener("load", () => {
     // add data-interests-id to each nav button, keep the html clean
     Array.prototype.forEach.call(document.querySelectorAll("#interests nav a"), (el) => {
@@ -10,18 +12,30 @@ window.addEventListener("load", () => {
         if (event.target.tagName=="A") selectInterestById(event.target.dataset.interestId)
     })
     document.getElementById(interest).classList.add("selected");
-    startCoundownToChange();
+    startCountdownToChange();
 })
 
-function startCoundownToChange(){
+function startCountdownToChange(){
     clearTimeout(timeOut)
     timeOut=setTimeout(()=>{
         console.log("Happened!")
+        if (paused){
+            console.log("Paused");
+            return;
+        }
         selectNextInterest();
-        startCoundownToChange();    
+        startCountdownToChange();    
     },3000);
 }
-
+function pauseCountDown(){
+    clearTimeout(timeOut);
+    paused=true;
+}
+function resumeCountDown(){
+    paused=false;
+    //maybe move to next already?
+    startCountdownToChange();
+}
 function selectNextInterest(){
     selectInterestByStep(1);
 }
@@ -48,7 +62,7 @@ function fadeIn(selected){
         selected.classList.remove("fading-in");
         if (selected.id==interest){
             selected.classList.add("selected");
-            startCoundownToChange();
+            startCountdownToChange();
         }
     }, { once: true })
 
