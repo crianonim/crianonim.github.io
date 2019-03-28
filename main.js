@@ -13,6 +13,14 @@ window.addEventListener("load", () => {
     })
     document.getElementById(interest).classList.add("selected");
     startCountdownToChange();
+    window.addEventListener("keydown",(event)=>{
+        if (event.keyCode==37){
+            selectPreviousInterest();
+        }
+        if (event.keyCode==39){
+            selectNextInterest();
+        }
+    })
 })
 
 function startCountdownToChange(){
