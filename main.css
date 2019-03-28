@@ -23,6 +23,12 @@ a:link,a:visited,a:hover {
     text-decoration: none;
     color:inherit;
 }
+
+/* VARIABLES */
+:root {
+    --transition-time: 0.5s;
+}
+
 body {
     font-family:sans-serif;
     position: relative;
@@ -55,8 +61,8 @@ section .container {
 #interests nav a {
     padding:5px;
     flex-grow:1;
-    transition: color 0.5s;
-    transition: background-color 0.5s;
+    transition: color var(--transition-time);
+    transition: background-color var(--transition-time);
 }
 #interests nav a.selected {
     padding:5px 10px;
@@ -121,11 +127,11 @@ h1 {
 }
 article.fading-out{
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transition: opacity var(--transition-time) ease-in;
 }
 article.fading-in{
    display: block;
-   animation: fade-in 0.5s ease-out;
+   animation: fade-in var(--transition-time) ease-out;
 }
 
 footer nav {
@@ -169,3 +175,4 @@ footer {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
