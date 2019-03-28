@@ -63,6 +63,7 @@ section .container {
     flex-grow:1;
     transition: color var(--transition-time);
     transition: background-color var(--transition-time);
+    text-align: center;
 }
 #interests nav a.selected {
     padding:5px 10px;
