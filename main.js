@@ -1,5 +1,7 @@
-const INTERESTS_ID = ["languages", "botany","cooking", "history",  "technology"]
+const INTERESTS_ID = ["languages", "botany","cooking", "history",  "technology"];
+const SECTIONS_ID=["who","why","how"];
 let interest="botany";
+let section=0;
 let timeOut;
 let paused=false;
 
@@ -34,6 +36,18 @@ window.addEventListener("load", () => {
     })
     document.getElementById("forward-button").addEventListener("click",()=>{
         selectNextInterest();
+    })
+    window.addEventListener("scroll",(event)=>{
+        let height=window.innerHeight;
+        let scrolled=window.scrollY;
+        let sec=(scrolled/height)>>0;
+        if (sec!=section){
+            document.getElementById("nav-"+SECTIONS_ID[section]).classList.remove("selected")
+            console.log("Change to",SECTIONS_ID[sec]);
+            document.getElementById("nav-"+SECTIONS_ID[sec]).classList.add("selected")
+            section=sec;
+
+        }
     })
     startCountdownToChange();
 })

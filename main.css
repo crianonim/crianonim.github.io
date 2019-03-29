@@ -38,9 +38,20 @@ header {
     height:100px;
     display: flex;
     width:100%;
+    z-index: 1;
+    background-color: #eeeeee44;
   
 }
-
+header nav a.selected {
+    color:red;
+}
+#header-content-container {
+    flex-grow:1;
+}
+#header-content-container nav {
+    display:flex;
+    justify-content: space-evenly;
+}
 section {
     height:100vh;
     padding-top: 100px;
@@ -205,7 +216,8 @@ footer {
 }
 @media (min-width:1025px) {
     header {
-        left:20vw;
+        left:19vw;
+        width:60vw;
     }
     section .container {
         width:60vw;
