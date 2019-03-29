@@ -240,6 +240,7 @@ footer {
     padding:4px;
     
 }
+
 @media (min-width:640px){
    
     header {
@@ -300,6 +301,19 @@ footer {
         padding:0 calc(50vw - 360px);
     } 
     
+}
+@media (min-aspect-ratio:12/7 ){
+    section {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 45px;
+    }
+    p {
+        margin:3px;
+    }
+    h1,h2 {
+        margin: 1rem;
+    }
 }
 @keyframes fade-in {
     0% {opacity: 0;}
