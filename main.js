@@ -57,9 +57,14 @@ window.addEventListener("load", () => {
     startCountdownToChange();
 })
 function changeSectionInHeaderNav(newSection){
+    let headerElement=document.querySelector('header');
+    let sectionName=SECTIONS_ID[newSection]
     document.getElementById("nav-"+SECTIONS_ID[section]).classList.remove("selected")
     console.log("Change to",SECTIONS_ID[newSection]);
-    document.getElementById("nav-"+SECTIONS_ID[newSection]).classList.add("selected")
+    document.getElementById("nav-"+sectionName).classList.add("selected")
+    headerElement.classList.remove("who","why","how");
+    headerElement.classList.add(sectionName);
+    
     section=newSection;
 }
 function startCountdownToChange(){

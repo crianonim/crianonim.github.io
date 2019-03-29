@@ -39,7 +39,6 @@ header {
     display: flex;
     width:100%;
     z-index: 1;
-    background-color: #c3c8cd;
 }
 
 header nav a.selected::before {
@@ -135,17 +134,19 @@ article.selected {
  .picture:hover #pause-button {
      visibility: visible;
  }
-#who {
+#who,header.who {
     background-color: #c3c8cd
     /* background-color: #009543; */
 }
-#why {
+#why, header.why {
     /* background-color: darkcyan; */
-    background-color:#606a74
+    background-color:#606a74;
+    color:white;
 
 }
-#how {
-    background-color: #b2bcc0
+#how, header.how{
+    background-color: #b2bcc0;
+    color:#222;
     /* background-color: lightcoral */
 }
 #face {
