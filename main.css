@@ -79,6 +79,9 @@ section .container {
    
     padding:0 10px;
 }
+#interests {
+    position: relative;
+}
 #interests nav {
     display: flex;
     justify-content: space-between;
@@ -268,10 +271,16 @@ footer {
         margin: 1rem;
     }
     .story{
-        height: 9rem;
+        top:60px;
+        height:calc(100% - 30px);
+        position: absolute;
+        z-index: 2;
+        justify-content: flex-start;
     }
     .story p {
-        margin:0 1rem 1rem 1rem;
+        margin:1rem;
+        padding: 1rem;
+        background-color:#ffffffa0;
     }
     h1,h2 {
         margin: 2rem;
