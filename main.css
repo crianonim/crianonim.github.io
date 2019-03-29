@@ -151,17 +151,24 @@ article.selected {
     background-color: #c3c8cd
     /* background-color: #009543; */
 }
-#why, header.why {
+#why, header.why  {
     /* background-color: darkcyan; */
     background-color:#606a74;
     color:white;
 
 }
-#how, header.how{
+#how, header.how  {
     background-color: #b2bcc0;
     color:#222;
     /* background-color: lightcoral */
 }
+#how a{
+    color:white;
+}
+#how a :hover{
+    cursor: pointer;
+}
+ 
 #face {
     width: 50px;
     height: 50px;
