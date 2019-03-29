@@ -39,18 +39,23 @@ header {
     display: flex;
     width:100%;
     z-index: 1;
-    background-color: #eeeeee44;
-  
+    background-color: #c3c8cd;
 }
-header nav a.selected {
-    color:red;
+
+header nav a.selected::before {
+    content: '\22c4  '; 
+}
+header nav a.selected::after {
+    content: ' \22c4'; 
 }
 #header-content-container {
     flex-grow:1;
+   
 }
 #header-content-container nav {
     display:flex;
     justify-content: space-evenly;
+    
 }
 section {
     height:100vh;
