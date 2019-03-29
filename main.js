@@ -10,6 +10,15 @@ window.addEventListener("load", () => {
     Array.prototype.forEach.call(document.querySelectorAll("#interests nav a"), (el) => {
         el.dataset.interestId = el.textContent.toLowerCase();
     })
+    
+    // Set the header nav button selection based on hash or default to 0
+    if (location.hash){
+        let hashSpecified=location.hash.substring(1);
+        changeSectionInHeaderNav(SECTIONS_ID.indexOf(hashSpecified))
+    } else {
+        changeSectionInHeaderNav(0)
+    }
+
     document.querySelector("#interests nav").addEventListener("click", (event) => {
         if (event.target.tagName=="A") selectInterestById(event.target.dataset.interestId)
     })
@@ -40,18 +49,19 @@ window.addEventListener("load", () => {
     window.addEventListener("scroll",(event)=>{
         let height=window.innerHeight;
         let scrolled=window.scrollY;
-        let sec=(scrolled/height)>>0;
-        if (sec!=section){
-            document.getElementById("nav-"+SECTIONS_ID[section]).classList.remove("selected")
-            console.log("Change to",SECTIONS_ID[sec]);
-            document.getElementById("nav-"+SECTIONS_ID[sec]).classList.add("selected")
-            section=sec;
-
+        let newSection=(scrolled/height)>>0;
+        if (newSection!=section){
+           changeSectionInHeaderNav(newSection);
         }
     })
     startCountdownToChange();
 })
-
+function changeSectionInHeaderNav(newSection){
+    document.getElementById("nav-"+SECTIONS_ID[section]).classList.remove("selected")
+    console.log("Change to",SECTIONS_ID[newSection]);
+    document.getElementById("nav-"+SECTIONS_ID[newSection]).classList.add("selected")
+    section=newSection;
+}
 function startCountdownToChange(){
     clearTimeout(timeOut)
     timeOut=setTimeout(()=>{
