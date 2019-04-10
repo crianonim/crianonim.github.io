@@ -60,7 +60,7 @@ function changeSectionInHeaderNav(newSection){
     let headerElement=document.querySelector('header');
     let sectionName=SECTIONS_ID[newSection]
     document.getElementById("nav-"+SECTIONS_ID[section]).classList.remove("selected")
-    console.log("Change to",SECTIONS_ID[newSection]);
+    // console.log("Change to",SECTIONS_ID[newSection]);
     document.getElementById("nav-"+sectionName).classList.add("selected")
     headerElement.classList.remove("who","why","how");
     headerElement.classList.add(sectionName);
@@ -70,9 +70,9 @@ function changeSectionInHeaderNav(newSection){
 function startCountdownToChange(){
     clearTimeout(timeOut)
     timeOut=setTimeout(()=>{
-        console.log("Happened!")
+        // console.log("Happened!")
         if (paused){
-            console.log("Paused");
+            // console.log("Paused");
             return;
         }
         selectNextInterest();
