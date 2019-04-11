@@ -270,7 +270,7 @@ footer {
     width: 0px;
     height:3px;
     background-color: black;
-    transition: all var(--interest-view-time);
+    transition: all var(--interest-view-time) linear;
 }
 .selected .timer {
     width:100%;
