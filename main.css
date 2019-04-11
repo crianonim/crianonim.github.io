@@ -17,6 +17,7 @@ a:link, a:visited, a:hover {
 /* VARIABLES */
 
 :root {
+    /* DEFAULTS, will be overriden by JS code */
     --transition-time: 0.5s;
     --transition-time-double:1s;
     --interest-view-time:3s;

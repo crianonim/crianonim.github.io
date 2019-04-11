@@ -1,11 +1,20 @@
 const INTERESTS_ID = ["languages", "botany", "cooking", "history", "technology"];
 const SECTIONS_ID = ["who", "why", "how"];
+const transitionTime=0.7;
+const interestViewTime=5;
 let interest = "languages";
 let section = 0;
-let timeOut;
+let timeOutHandle;
 let paused = false;
 
+
 window.addEventListener("load", () => {
+    const body=document.body;
+    body.style.setProperty('--transition-time',transitionTime+"s");
+    body.style.setProperty('--transition-time-double',transitionTime*2+"s");
+    body.style.setProperty('--interest-view-time',interestViewTime+"s");
+
+
     // add data-interests-id to each nav button, keep the html clean
     Array.prototype.forEach.call(document.querySelectorAll("#interests nav a"), (el) => {
         el.dataset.interestId = el.textContent.toLowerCase();
@@ -70,8 +79,8 @@ function changeSectionInHeaderNav(newSection) {
     section = newSection;
 }
 function startCountdownToChange() {
-    clearTimeout(timeOut)
-    timeOut = setTimeout(() => {
+    clearTimeout(timeOutHandle)
+    timeOutHandle = setTimeout(() => {
         // console.log("Happened!")
         if (paused) {
             // console.log("Paused");
@@ -79,10 +88,10 @@ function startCountdownToChange() {
         }
         selectNextInterest();
         startCountdownToChange();
-    }, 3000);
+    }, interestViewTime*1000);
 }
 function pauseCountDown() {
-    clearTimeout(timeOut);
+    clearTimeout(timeOutHandle);
     paused = true;
 }
 function resumeCountDown() {
@@ -127,7 +136,7 @@ function fadeIn(selected) {
 }
 function selectInterestById(id) {
     interest = id;
-    clearTimeout(timeOut)
+    clearTimeout(timeOutHandle)
     let navSelected=document.querySelector("#interests nav a.selected");
     if (navSelected) {
         navSelected.classList.remove("selected");
