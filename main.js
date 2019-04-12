@@ -68,6 +68,10 @@ window.addEventListener("load", () => {
     })
     startCountdownToChange();
     calculateSectionSizes();
+
+    window.addEventListener("resize",(event)=>{
+       calculateSectionSizes();
+    })
 })
 // should be called whenever the size of viewport is changed;
 function calculateSectionSizes(){
