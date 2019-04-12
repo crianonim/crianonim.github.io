@@ -277,6 +277,13 @@ footer {
     width:100%;
 
 }
+header img {
+    transition: all 1s;
+}
+header img:hover {
+    transform: scale(2) translate(20px,20px); /*learned how to put more then one transform in one line*/
+
+}
 @media (min-width:640px) {
     @media (min-height: 400px) {
         header {
@@ -335,9 +342,7 @@ footer {
         section {
             padding-top: 10px;
         }
-        .picture {
-            /* height:90vh; */
-        }
+        
         .story {
             top: 60px;
             height: calc(100% - 30px);
