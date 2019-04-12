@@ -81,9 +81,8 @@ function calculateSectionSizes(){
 function getSectionIndexFromScroll(scroll,sizes=sectionsSizes){
     let currentValue=0;
     cummulativeSizes=sizes.map( el=> currentValue+=el );
-    // console.log(cummulativeSizes);
     let index=cummulativeSizes.findIndex( point=> scroll<point);
-    return index==-1?sizes.length-1:index; 
+    return index;
         
 }
 function changeSectionInHeaderNav(newSection) {
