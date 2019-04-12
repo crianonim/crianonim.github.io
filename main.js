@@ -6,7 +6,7 @@ let interest = "languages";
 let section = 0;
 let timeOutHandle;
 let paused = false;
-
+let sectionsSizes=[];
 
 window.addEventListener("load", () => {
     const body=document.body;
@@ -60,13 +60,28 @@ window.addEventListener("load", () => {
     window.addEventListener("scroll", (event) => {
         let height = window.innerHeight;
         let scrolled = window.scrollY;
-        let newSection = (scrolled / height) >> 0;
+        let newSection=getSectionIndexFromScroll(scrolled);
         if (newSection != section) {
+            console.log("New section",newSection,window.innerHeight,scrolled)
             changeSectionInHeaderNav(newSection);
         }
     })
     startCountdownToChange();
+    calculateSectionSizes();
 })
+// should be called whenever the size of viewport is changed;
+function calculateSectionSizes(){
+    sectionsSizes=SECTIONS_ID.map(id=>document.getElementById(id).clientHeight);
+    console.log(sectionsSizes)
+}
+function getSectionIndexFromScroll(scroll,sizes=sectionsSizes){
+    let currentValue=0;
+    cummulativeSizes=sizes.map( el=> currentValue+=el );
+    // console.log(cummulativeSizes);
+    let index=cummulativeSizes.findIndex( point=> scroll<point);
+    return index==-1?sizes.length-1:index; 
+        
+}
 function changeSectionInHeaderNav(newSection) {
     let headerElement = document.querySelector('header');
     let sectionName = SECTIONS_ID[newSection]
