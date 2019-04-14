@@ -256,7 +256,7 @@ footer nav {
 footer {
     position: absolute;
     bottom: 1px;
-    width: 100%;
+    width: 95%;
 }
 
 .fcc-logo {
@@ -287,6 +287,7 @@ header img:hover {
     transform: scale(2) translate(20px,20px); /*learned how to put more then one transform in one line*/
 
 }
+
 @media (min-width:640px) {
     @media (min-height: 400px) {
         header {
@@ -393,7 +394,18 @@ header img:hover {
         margin: 1rem;
     }
 }
-
+/* really small widths like iPhone 5 */
+@media (max-width: 350px){
+    section {
+       height: auto;
+    }
+    footer {
+        position: static;
+    }
+    footer img {
+        width: 100%;
+    }
+}
 @keyframes fade-in {
     0% {
         opacity: 0;
