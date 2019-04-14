@@ -300,8 +300,12 @@ header img:hover {
             font-size: 1rem;
             box-sizing: border-box;
         }
+        /* header can sometimes overflow in shorter views, let it happen */
+        #how {
+            height: auto;
+            min-height: 100vh;
+        }
         section .container {
-            /* width: 68vw; */
             padding: 0 15vw;
         }
         #face {
