@@ -43,6 +43,10 @@ window.addEventListener("load", () => {
         if (event.keyCode == 39) {
             selectNextInterest();
         }
+        if (event.keyCode==32){
+            gotoNextSection();
+            event.preventDefault();
+        }
     })
 
     document.getElementById("pause-button").addEventListener("click", (event) => {
@@ -62,7 +66,7 @@ window.addEventListener("load", () => {
         let scrolled = window.scrollY;
         let newSection=getSectionIndexFromScroll(scrolled);
         if (newSection != section) {
-            console.log("New section",newSection,window.innerHeight,scrolled)
+            // console.log("New section",newSection,window.innerHeight,scrolled)
             changeSectionInHeaderNav(newSection);
         }
     })
@@ -73,10 +77,15 @@ window.addEventListener("load", () => {
        calculateSectionSizes();
     })
 })
+function gotoNextSection(){
+   let destinationSection=Math.min(section+1,SECTIONS_ID.length-1);
+   let element=document.getElementById(SECTIONS_ID[destinationSection])
+   element.scrollIntoView({behavior: "smooth", block: "start"});
+}
 // should be called whenever the size of viewport is changed;
 function calculateSectionSizes(){
     sectionsSizes=SECTIONS_ID.map(id=>document.getElementById(id).clientHeight);
-    console.log(sectionsSizes)
+//    console.log(sectionsSizes)
 }
 function getSectionIndexFromScroll(scroll,sizes=sectionsSizes){
     let currentValue=0;
