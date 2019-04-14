@@ -275,7 +275,10 @@ footer {
 }
 .selected .timer {
     width:100%;
-
+}
+.selected .timer.paused {
+    width:0;
+    transition: none;
 }
 header img {
     transition: all 1s;

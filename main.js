@@ -110,10 +110,13 @@ function startCountdownToChange() {
 }
 function pauseCountDown() {
     clearTimeout(timeOutHandle);
+    document.querySelector(`#${interest} .timer`).classList.add("paused");
     paused = true;
 }
 function resumeCountDown() {
     paused = false;
+    document.querySelector(`#${interest} .timer`).classList.remove("paused");
+
     //maybe move to next already?
     startCountdownToChange();
 }
