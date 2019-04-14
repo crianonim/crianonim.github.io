@@ -119,12 +119,12 @@ function startCountdownToChange() {
 }
 function pauseCountDown() {
     clearTimeout(timeOutHandle);
-    document.querySelector(`#${interest} .timer`).classList.add("paused");
+    document.getElementById("interests").classList.add("paused");
     paused = true;
 }
 function resumeCountDown() {
     paused = false;
-    document.querySelector(`#${interest} .timer`).classList.remove("paused");
+    document.getElementById("interests").classList.remove("paused");
 
     //maybe move to next already?
     startCountdownToChange();

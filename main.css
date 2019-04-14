@@ -276,7 +276,7 @@ footer {
 .selected .timer {
     width:100%;
 }
-.selected .timer.paused {
+.paused  .timer {
     width:0;
     transition: none;
 }
