@@ -301,7 +301,7 @@ header img:hover {
             box-sizing: border-box;
         }
         section .container {
-            width: 70vw;
+            /* width: 68vw; */
             padding: 0 15vw;
         }
         #face {
