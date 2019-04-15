@@ -10,3 +10,9 @@
 - effect of time elapsing when interests are shown
 - added ssh keys and created local clone with ssh credentials
 - start signing commits with GPG
+
+
+# TO ask
+browser compatibility - don't worry about that, use the latest
+carousel - it's ok to be creative
+responsiveness - not deep
