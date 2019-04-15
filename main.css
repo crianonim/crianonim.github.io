@@ -354,6 +354,7 @@ header img:hover {
         }
         footer {
             position: static;
+            margin-top: 2em;
         }
     }
     @media (max-height:399px) {
