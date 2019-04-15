@@ -1,7 +1,7 @@
 const INTERESTS_ID = ["languages", "botany", "cooking", "history", "technology"];
 const SECTIONS_ID = ["who", "why", "how"];
-const transitionTime = 0.7;
-const interestViewTime = 5;
+const transitionTime = 0.3;
+const interestViewTime = 13;
 let interest = "languages";
 let section = 0;
 let timeOutHandle;
