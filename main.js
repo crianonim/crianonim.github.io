@@ -11,9 +11,9 @@ let sectionsSizes = [];
 window.addEventListener("load", () => {
 
     // all css variables
-    document.body.style.setProperty('--transition-time', transitionTime + "s");
-    document.body.style.setProperty('--transition-time-double', transitionTime * 2 + "s");
-    document.body.style.setProperty('--interest-view-time', interestViewTime + "s");
+    document.documentElement.style.setProperty('--transition-time', transitionTime + "s");
+    document.documentElement.style.setProperty('--transition-time-double', transitionTime * 2 + "s");
+    document.documentElement.style.setProperty('--interest-view-time', interestViewTime + "s");
 
 
     // add data-interests-id to each nav button, keep the html clean
