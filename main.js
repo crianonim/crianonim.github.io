@@ -1,7 +1,7 @@
 const INTERESTS_ID = ["languages", "botany", "cooking", "history", "technology"];
 const SECTIONS_ID = ["who", "why", "how"];
-const transitionTime = 0.3;
-const interestViewTime = 13;
+const INTEREST_TRANSITION_TIME = 0.2;
+const INTEREST_VIEW_TIME = 13;
 let interest = "languages";
 let section = 0;
 let timeOutHandle;
@@ -11,9 +11,9 @@ let sectionsSizes = [];
 window.addEventListener("load", () => {
 
     // all css variables
-    document.documentElement.style.setProperty('--transition-time', transitionTime + "s");
-    document.documentElement.style.setProperty('--transition-time-double', transitionTime * 2 + "s");
-    document.documentElement.style.setProperty('--interest-view-time', interestViewTime + "s");
+    document.documentElement.style.setProperty('--transition-time', INTEREST_TRANSITION_TIME + "s");
+    document.documentElement.style.setProperty('--transition-time-double', INTEREST_TRANSITION_TIME * 2 + "s");
+    document.documentElement.style.setProperty('--interest-view-time', INTEREST_VIEW_TIME + "s");
 
 
     // add data-interests-id to each nav button, keep the html clean
@@ -83,6 +83,16 @@ window.addEventListener("load", () => {
     calculateSectionSizes();
 })
 
+// - SECTION CHANGE - 
+
+// establishes where you are based on scroll amount
+function getSectionIndexFromScroll(scroll, sizes = sectionsSizes) {
+    let currentValue = 0;
+    cummulativeSizes = sizes.map(el => currentValue += el);
+    let index = cummulativeSizes.findIndex(point => scroll < point);
+    return index;
+}
+
 function gotoNextSection() {
     let destinationSection = Math.min(section + 1, SECTIONS_ID.length - 1);
     let element = document.getElementById(SECTIONS_ID[destinationSection])
@@ -93,13 +103,8 @@ function gotoNextSection() {
 function calculateSectionSizes() {
     sectionsSizes = SECTIONS_ID.map(id => document.getElementById(id).clientHeight);
 }
-function getSectionIndexFromScroll(scroll, sizes = sectionsSizes) {
-    let currentValue = 0;
-    cummulativeSizes = sizes.map(el => currentValue += el);
-    let index = cummulativeSizes.findIndex(point => scroll < point);
-    return index;
 
-}
+// updates classes in header based on section we are in
 function changeSectionInHeaderNav(newSection) {
     let headerElement = document.querySelector('header');
     let sectionName = SECTIONS_ID[newSection]
@@ -110,6 +115,8 @@ function changeSectionInHeaderNav(newSection) {
     section = newSection;
 }
 
+// - CAROUSEL -
+
 function startCountdownToChange() {
     clearTimeout(timeOutHandle)
     timeOutHandle = setTimeout(() => {
@@ -118,7 +125,7 @@ function startCountdownToChange() {
         }
         selectNextInterest();
         startCountdownToChange();
-    }, interestViewTime * 1000);
+    }, INTEREST_VIEW_TIME * 1000);
 }
 function pauseCountDown() {
     clearTimeout(timeOutHandle);
@@ -146,6 +153,35 @@ function selectInterestByStep(step) {
     selectInterestById(INTERESTS_ID[current])
 }
 
+function selectInterestById(id) {
+    interest = id;
+    clearTimeout(timeOutHandle)
+    
+    // interest nav bar
+    let navSelected = document.querySelector("#interests nav a.selected");
+    if (navSelected) {
+        navSelected.classList.remove("selected");
+    }
+    document.querySelector("a[data-interest-id=" + id + "]").classList.add("selected");
+
+    // carousel itself
+    let currentlySelected = document.querySelector("#interests article.selected")
+    let newlySelected = document.querySelector("#" + id)
+    if (currentlySelected) {
+        if (currentlySelected.classList.contains("fading-out")) {
+            return;
+        }
+        currentlySelected.classList.add("fading-out");
+        currentlySelected.addEventListener("transitionend", () => {
+            currentlySelected.classList.remove("selected");
+            currentlySelected.classList.remove("fading-out");
+            let newlySelected = document.querySelector("#" + interest)
+            fadeIn(newlySelected)
+        }, { once: true })
+    } else {
+        fadeIn(newlySelected)
+    }
+}
 function fadeIn(selected) {
     Array.from(document.querySelectorAll(".fading-in")).forEach(el => {
         el.classList.remove("fading-in");
@@ -156,37 +192,10 @@ function fadeIn(selected) {
         if (selected.id == interest) {
             selected.classList.add("selected");
             startCountdownToChange();
+            // move the carousel buttons to selected
             let nav = document.querySelector('.picture .navigation');
             nav.parentElement.removeChild(nav);
             selected.querySelector('.picture').appendChild(nav)
         }
     }, { once: true })
-
-}
-function selectInterestById(id) {
-    interest = id;
-    clearTimeout(timeOutHandle)
-    let navSelected = document.querySelector("#interests nav a.selected");
-    if (navSelected) {
-        navSelected.classList.remove("selected");
-    }
-    document.querySelector("a[data-interest-id=" + id + "]").classList.add("selected");
-
-    let interestSection = document.querySelector("#interests article.selected")
-    let selected = document.querySelector("#" + id)
-    if (interestSection) {
-        if (interestSection.classList.contains("fading-out")) {
-            return;
-        }
-        interestSection.classList.add("fading-out");
-        interestSection.addEventListener("transitionend", () => {
-            interestSection.classList.remove("selected");
-            interestSection.classList.remove("fading-out");
-            let selected = document.querySelector("#" + interest)
-            fadeIn(selected)
-        }, { once: true })
-    } else {
-        fadeIn(selected)
-    }
-
 }
