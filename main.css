@@ -67,7 +67,7 @@ header {
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 70px;
     font-size: 0.8em;
     box-sizing: border-box;
@@ -324,7 +324,9 @@ header img:hover {
             height: calc(100% - 30px);
             position: absolute;
             z-index: 2;
-            justify-content: flex-start;
+            /* justify-content: flex-start; */
+            justify-content: center;
+
         }
         .story p {
             margin: 1rem 3rem;
@@ -374,6 +376,7 @@ header img:hover {
         width: 720px;
         padding: 0 calc(50vw - 370px);
     }
+    
 }
 
 @media (min-aspect-ratio:12/7) {
@@ -395,6 +398,7 @@ header img:hover {
 @media (max-width: 350px) {
     section {
         height: auto;
+        min-height: 100vh;
     }
     footer {
         position: static;
