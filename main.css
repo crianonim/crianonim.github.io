@@ -65,10 +65,11 @@ header {
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 70px;
     font-size: 0.8em;
     box-sizing: border-box;
+    overflow-y: hidden; /* makes sure a small white strip doesn't appear */
 }
 
 section .container {
@@ -292,16 +293,11 @@ header img:hover {
             width: 70vw;
         }
         section {
-            height: 100vh;
             padding-top: 100px;
             font-size: 1rem;
             box-sizing: border-box;
         }
-        /* header can sometimes overflow in shorter views, let it happen */
-        #how {
-            height: auto;
-            min-height: 100vh;
-        }
+       
         section .container {
             padding: 0 15vw;
         }
@@ -322,7 +318,6 @@ header img:hover {
             height: calc(100% - 30px);
             position: absolute;
             z-index: 2;
-            /* justify-content: flex-start; */
             justify-content: center;
         }
         .story p {
@@ -354,8 +349,6 @@ header img:hover {
 
 @media (min-aspect-ratio:12/7) {
     section {
-        height: auto;
-        min-height: 100vh;
         padding-bottom: 45px;
     }
     p {
@@ -383,7 +376,6 @@ header img:hover {
         height: calc(100% - 30px);
         position: absolute;
         z-index: 2;
-        /* justify-content: flex-start; */
         justify-content: center;
     }
     .story p {
@@ -396,11 +388,7 @@ header img:hover {
 /* really small widths like iPhone 5 */
 
 @media (max-width: 350px) {
-    section {
-        /* height: auto; */
-        height: 100vh;
-        /* min-height: 100vh; */
-    }
+    
     footer {
         position: static;
     }
