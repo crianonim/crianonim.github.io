@@ -6,6 +6,7 @@ let interest = "languages";
 let section = 0;
 let timeOutHandle;
 let paused = false;
+let colourful= false;
 let sectionsSizes = [];
 
 window.addEventListener("load", () => {
@@ -14,7 +15,9 @@ window.addEventListener("load", () => {
     document.documentElement.style.setProperty('--transition-time', INTEREST_TRANSITION_TIME + "s");
     document.documentElement.style.setProperty('--transition-time-double', INTEREST_TRANSITION_TIME * 2 + "s");
     document.documentElement.style.setProperty('--interest-view-time', INTEREST_VIEW_TIME + "s");
+    
 
+    
 
     // add data-interests-id to each nav button, keep the html clean
     Array.prototype.forEach.call(document.querySelectorAll("#interests nav a"), (el) => {
@@ -77,11 +80,35 @@ window.addEventListener("load", () => {
         calculateSectionSizes();
     })
 
+    // when you have too much time before deadline you add ESSENTIAL features;)
+    document.getElementById("face").addEventListener("click",toggleColourful);
+
+
     // kick off functionality
     selectInterestById(interest)
     startCountdownToChange();
     calculateSectionSizes();
 })
+// COLOURIZE !
+function makeWebsiteColourful(){
+    document.documentElement.style.setProperty('--colour-who', '#3D9970');
+    document.documentElement.style.setProperty('--colour-why', '#FF4136');
+    document.documentElement.style.setProperty('--colour-how', '#0074D9');
+}
+function makeWebsiteGrey(){
+    document.documentElement.style.setProperty('--colour-who', '');
+    document.documentElement.style.setProperty('--colour-why', '');
+    document.documentElement.style.setProperty('--colour-how', '');
+}
+function toggleColourful(){
+    if (colourful){
+        makeWebsiteGrey();
+        colourful=false;
+    } else {
+        makeWebsiteColourful();
+        colourful=true;
+    }
+}
 
 // - SECTION CHANGE - 
 

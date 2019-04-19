@@ -21,7 +21,11 @@ a:link, a:visited, a:hover {
     --transition-time: 0.5s;
     --transition-time-double: 1s;
     --interest-view-time: 3s;
-}
+    --colour-who:#c3c8cd;
+    --colour-why:#606a74;
+    --colour-how:#b2bcc0;
+}   
+
 
 body {
     font-family: 'Roboto Condensed', sans-serif;
@@ -67,6 +71,7 @@ section {
     padding-top: 70px;
     font-size: 0.8em;
     box-sizing: border-box;
+   
 }
 
 section .container {
@@ -151,17 +156,20 @@ article.selected {
 }
 
 #who, header.who {
-    background-color: #c3c8cd
+    background-color: var(--colour-who);
+    transition: 1s background-color;
 }
 
 #why, header.why {
-    background-color: #606a74;
+    background-color: var(--colour-why);
     color: white;
+    transition: 1s background-color;
 }
 
 #how, header.how, footer {
-    background-color: #b2bcc0;
+    background-color: var(--colour-how);
     color: #222;
+    transition: 1s background-color;
 }
 
 #how a {
