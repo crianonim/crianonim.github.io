@@ -40,14 +40,6 @@ header {
     display: flex;
 }
 
-/*
-header nav a.selected::before {
-    content: '\22c4  '; 
-}
-header nav a.selected::after {
-    content: ' \22c4'; 
-}
-*/
 
 #header-content-container {
     flex-grow: 1;
@@ -55,7 +47,6 @@ header nav a.selected::after {
 
 #header-content-container nav {
     display: flex;
-    /* justify-content: space-evenly; */
 }
 
 #header-content-container nav a {
@@ -131,14 +122,10 @@ article.selected {
     top: 45%;
     left: 0;
     right: 0;
-    /* height:10%; */
 }
 
 .navigation a {
     position: absolute;
-    /* width: 2rem;
-    height: 3rem; */
-    /* background-color: #b2bcc022; */
     opacity: 0.4;
     font-size: 2rem;
     text-align: center;
@@ -161,22 +148,13 @@ article.selected {
 
 #pause-button {
     right: 45%;
-    /* visibility: hidden; */
 }
-
-/*
-.article:hover #pause-button {
-    visibility: visible;
-}
-*/
 
 #who, header.who {
     background-color: #c3c8cd
-    /* background-color: #009543; */
 }
 
 #why, header.why {
-    /* background-color: darkcyan; */
     background-color: #606a74;
     color: white;
 }
@@ -184,7 +162,6 @@ article.selected {
 #how, header.how, footer {
     background-color: #b2bcc0;
     color: #222;
-    /* background-color: lightcoral */
 }
 
 #how a {
@@ -224,7 +201,6 @@ p {
 }
 
 em {
-    /* font-style: italic; */
     letter-spacing: 2px;
     font-weight: bold;
 }
@@ -297,7 +273,6 @@ header img {
 
 header img:hover {
     transform: scale(2) translate(20px, 20px);
-    /*learned how to put more then one transform in one line*/
 }
 
 @media (min-width:640px) {
