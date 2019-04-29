@@ -69,7 +69,8 @@ section {
     padding-top: 70px;
     font-size: 0.8em;
     box-sizing: border-box;
-    overflow-y: hidden; /* makes sure a small white strip doesn't appear */
+    /* makes sure a small white strip doesn't appear */
+    overflow-y: hidden;
 }
 
 section .container {
@@ -297,7 +298,6 @@ header img:hover {
             font-size: 1rem;
             box-sizing: border-box;
         }
-       
         section .container {
             padding: 0 15vw;
         }
@@ -314,7 +314,6 @@ header img:hover {
             margin: 1rem;
         }
         .story {
-            /* top: 60px; */
             height: calc(100% - 30px);
             position: absolute;
             z-index: 2;
@@ -372,7 +371,6 @@ header img:hover {
 
 @media (max-height:399px) {
     .story {
-        /* top: 60px; */
         height: calc(100% - 30px);
         position: absolute;
         z-index: 2;
@@ -388,7 +386,6 @@ header img:hover {
 /* really small widths like iPhone 5 */
 
 @media (max-width: 350px) {
-    
     footer {
         position: static;
     }
