@@ -116,7 +116,7 @@ function toggleColourful(){
 function getSectionIndexFromScroll(scroll, sizes = sectionsSizes) {
     let currentValue = 0;
     cummulativeSizes = sizes.map(el => currentValue += el);
-    let index = cummulativeSizes.findIndex(point => scroll < point);
+    let index = cummulativeSizes.findIndex(point => scroll+4 < point);
     return index;
 }
 
