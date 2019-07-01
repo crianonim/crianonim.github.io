@@ -57,7 +57,7 @@ header {
 
 #header-content-container nav a.selected {
     padding: 2px 10px;
-    color: white
+    /* color: white */
 }
 
 .why #header-content-container nav a.selected {
@@ -159,7 +159,7 @@ article.selected {
     transition: 1s background-color;
 }
 
-#why, header.why {
+#why {
     background-color: var(--colour-why);
     color: white;
     transition: 1s background-color;
@@ -172,7 +172,7 @@ article.selected {
 }
 
 #how a {
-    color: white;
+    font-weight: bold;
 }
 
 #how a :hover {
